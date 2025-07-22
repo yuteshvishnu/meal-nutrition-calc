@@ -66,6 +66,10 @@ button:hover {
   animation: fadeIn 0.8s ease-in;
 }
 
+#item-list {
+  padding: 10px;
+}
+
 @keyframes slideIn {
   from {
     transform: translateY(20px);
