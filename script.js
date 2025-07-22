@@ -51,29 +51,43 @@ document.getElementById("meal-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const inputs = document.querySelectorAll(".form-item");
   let total = { cal: 0, pro: 0, fat: 0, carb: 0, chol: 0, fiber: 0, price: 0 };
+  let selectedItems = [];
 
   inputs.forEach(div => {
     const idx = +div.querySelector("select").value;
     const portions = +div.querySelector("input").value || 0;
     const food = foods[idx];
-    total.cal += food.cal * portions;
-    total.pro += food.pro * portions;
-    total.fat += food.fat * portions;
-    total.carb += food.carb * portions;
-    total.chol += food.chol * portions;
-    total.fiber += food.fiber * portions;
-    total.price += food.price * portions;
+
+    if (portions > 0) {
+      selectedItems.push({ name: food.name, count: portions });
+
+      total.cal += food.cal * portions;
+      total.pro += food.pro * portions;
+      total.fat += food.fat * portions;
+      total.carb += food.carb * portions;
+      total.chol += food.chol * portions;
+      total.fiber += food.fiber * portions;
+      total.price += food.price * portions;
+    }
   });
 
+  // Build items list
+  let itemListHTML = '<h3>🧾 Items Included:</h3><ul>';
+  selectedItems.forEach(item => {
+    itemListHTML += `<li><strong>${item.name}</strong> — ${item.count} portion(s)</li>`;
+  });
+  itemListHTML += '</ul>';
+
   const result = `
+    ${itemListHTML}
     <h3>🍽️ Meal Summary:</h3>
-    <p><strong>Calories:</strong> ${total.cal} kcal</p>
+    <p><strong>Calories:</strong> ${total.cal.toFixed(2)} kcal</p>
     <p><strong>Protein:</strong> ${total.pro.toFixed(2)} g</p>
     <p><strong>Fat:</strong> ${total.fat.toFixed(2)} g</p>
     <p><strong>Carbs:</strong> ${total.carb.toFixed(2)} g</p>
     <p><strong>Cholesterol:</strong> ${total.chol.toFixed(2)} mg</p>
     <p><strong>Fiber:</strong> ${total.fiber.toFixed(2)} g</p>
-    <p><strong>Total Price:</strong> ₹${total.price}</p>
+    <p><strong>Total Price:</strong> ₹${total.price.toFixed(2)}</p>
   `;
 
   document.getElementById("result").innerHTML = result;
@@ -83,3 +97,4 @@ window.onload = () => {
   renderFoodTable();
   document.getElementById("item-list").appendChild(createItemSelector());
 };
+
