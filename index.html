@@ -1,57 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Meal Nutrition and Price Calculator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script defer src="script.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
   <div class="container">
-    <h1>🥗 Meal Nutrition and Price Calculator</h1>
+    <h1>🍱 Meal Nutrition and Price Calculator</h1>
 
     <section class="table-section">
-      <h2>Food Items</h2>
+      <h2>📋 Food Items</h2>
       <table id="food-table">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Calories/100g</th>
+            <th>Item</th>
+            <th>Calories</th>
             <th>Protein (g)</th>
             <th>Fat (g)</th>
             <th>Carbs (g)</th>
             <th>Cholesterol (mg)</th>
             <th>Fiber (g)</th>
-            <th>Price (Rs)</th>
+            <th>Price (₹)</th>
           </tr>
         </thead>
-        <tbody id="food-table-body">
-          <!-- Filled by JS -->
-        </tbody>
+        <tbody id="food-body"></tbody>
       </table>
     </section>
 
-    <section class="calculator-section">
-      <h2>Calculate Food Plate Calorie Stats & Price</h2>
+    <section class="calculator">
+      <h2>🥗 Build Your Plate</h2>
       <form id="meal-form">
-        <div id="items-container">
-          <!-- Input rows will appear here -->
-        </div>
+        <div id="item-list"></div>
         <button type="button" id="add-item">➕ Add Item</button>
-        <button type="submit" id="calculate">🍽️ Calculate</button>
+        <br /><br />
+        <button type="submit">✅ Calculate</button>
       </form>
-
-      <div id="results" class="results-box hidden">
-        <h3>Results</h3>
-        <p id="output"></p>
-      </div>
+      <div id="result"></div>
     </section>
   </div>
-</body>
 
+  <script src="script.js"></script>
+</body>
 </html>
