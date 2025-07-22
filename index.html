@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Meal Nutrition and Price Calculator</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <div class="container">
@@ -12,6 +12,7 @@
 
     <section class="table-section">
       <h2>📋 Food Items</h2>
+      <div class="table-container">
       <table id="food-table">
         <thead>
           <tr>
@@ -28,12 +29,13 @@
         </thead>
         <tbody id="food-body"></tbody>
       </table>
+      </div>
     </section>
 
     <section class="calculator">
       <h2>🥗 Build Your Plate</h2>
       <form id="meal-form">
-        <div id="item-list"></div>
+        <div id="item-list" style="margin: 10px;"></div>
         <button type="button" id="add-item">➕ Add Item</button>
         <br /><br />
         <button type="submit">✅ Calculate</button>
