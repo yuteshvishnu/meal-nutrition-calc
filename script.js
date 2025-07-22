@@ -21,7 +21,7 @@ function renderFoodTable() {
   foods.forEach((f, i) => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${i+1}></td>
+      <td>${i+1}</td>
       <td>${f.name}</td>
       <td>${f.cal}</td><td>${f.pro}</td><td>${f.fat}</td>
       <td>${f.carb}</td><td>${f.chol}</td><td>${f.fiber}</td>
