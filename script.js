@@ -39,6 +39,7 @@ function createItemSelector() {
       ${foods.map((f, i) => `<option value="${i}">${f.name}</option>`).join("")}
     </select>
     <input type="number" min="1" placeholder="Portions" />
+    <br/>
     <h5></h5>
   `;
   return div;
@@ -98,4 +99,5 @@ window.onload = () => {
   renderFoodTable();
   document.getElementById("item-list").appendChild(createItemSelector());
 };
+
 
