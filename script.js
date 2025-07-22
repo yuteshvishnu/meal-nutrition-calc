@@ -38,7 +38,7 @@ function createItemSelector() {
     <select>
       ${foods.map((f, i) => `<option value="${i}">${f.name}</option>`).join("")}
     </select>
-    <input type="number" min="1" placeholder="Portions (100g each)" />
+    <input type="number" min="1" placeholder="Portions" />
   `;
   return div;
 }
